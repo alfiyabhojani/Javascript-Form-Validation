@@ -20,9 +20,14 @@ function validateForm() {
     seterror("name", "*Length of name is too short");
     returnVal = false;
   }
-  // if (name.length == 0) {
-  //   seterror("name", "*Length of name cannot be zero");
-  // }
+  if (name.length == 0) {
+    seterror("name", "*Length of name cannot be empty");
+    
+  }
+  if (!isNaN(name)) {
+    seterror("name", "*Please Enter Only Characters");
+    returnVal = false;
+  }
 
   let email = document.forms["myForm"]["femail"].value;
   if (email.length > 25) {
